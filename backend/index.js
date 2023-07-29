@@ -26,7 +26,7 @@ app.use(cookieParser());
 // then put the url of frontend in the origin.
 app.use(
 	cors({
-		origin:"https://study-skill.vercel.app/",
+		origin:"https://study-skill.vercel.app",
 		credentials:true,
 	})
 );
