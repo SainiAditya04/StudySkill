@@ -26,7 +26,7 @@ app.use(cookieParser());
 // then put the url of frontend in the origin.
 app.use(
 	cors({
-		origin:"http://localhost:3000",
+		origin:"https://study-skill.vercel.app/",
 		credentials:true,
 	})
 );
