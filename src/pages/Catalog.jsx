@@ -51,7 +51,7 @@ const Catalog = () => {
     }, [categoryId])
 
     return (
-        <div className=' bg-richblack-900 flex flex-col items-center'>
+        <div className=' bg-richblack-900'>
             {/* Hero Section  */}
             <div className="w-screen box-content bg-richblack-800 px-4">
                 <div className="mx-auto flex min-h-[260px] max-w-maxContentTab flex-col justify-center gap-4 lg:max-w-maxContent ">
@@ -71,7 +71,7 @@ const Catalog = () => {
             </div>
 
             {/* section 1 */}
-            <div className=" mx-auto box-content w-full bg-richblack-900 max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
+            <div className=" mx-auto box-content md:w-full w-[90%] bg-richblack-900 max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
                 <div className=" text-richblack-25 font-bold text-2xl">Courses to get you started</div>
                 <div className="my-4 flex border-b border-b-richblack-600 text-sm">
                     <p
@@ -101,7 +101,7 @@ const Catalog = () => {
             </div>
 
             {/* section 2 */}
-            <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
+            <div className=" mx-auto box-content w-[90%] md:w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
                 <div className="section_heading text-richblack-25 font-bold text-2xl">
                     Top courses in {catalogPageData?.data?.differentCategory?.name}
                 </div>
@@ -113,7 +113,7 @@ const Catalog = () => {
             </div>
 
             {/* section 3 */}
-            <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
+            <div className=" mx-auto box-content w-[90%] md:w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
                 <div className="section_heading text-richblack-25 font-bold text-2xl">Frequently Bought</div>
                 <div className="py-8">
                     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">

@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import studyskillwhite from "../../assets/Images/StudySkillWhite.png";
-import { Link, NavLink, matchPath, useLocation } from "react-router-dom";
+import { Link, NavLink, matchPath, useLocation, useNavigate } from "react-router-dom";
 import { NavbarLinks } from "../../data/navbar-links";
 import { useSelector } from "react-redux";
 import ProfileDropdown from "../core/Auth/ProfileDropdown";
 import { apiConnector } from "../../services/apiconnector";
 import { categories } from "../../services/apis";
-import { BsChevronDown } from "react-icons/bs";
+import { BsBook, BsChevronDown } from "react-icons/bs";
 import { ACCOUNT_TYPE } from "../../utils/constants";
-import { AiOutlineMenu, AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineHome, AiOutlineMenu, AiOutlinePhone, AiOutlineShoppingCart } from "react-icons/ai";
+import { IoIosArrowRoundBack } from "react-icons/io";
+import { FiUser } from "react-icons/fi";
+import { RiArrowDropDownFill, RiArrowDropDownLine, RiArrowDropUpLine, RiArrowUpDownLine } from "react-icons/ri";
+import { BiUserCircle } from "react-icons/bi";
 
 const Navbar = () => {
     const { token } = useSelector((state) => state.auth);
@@ -16,8 +20,13 @@ const Navbar = () => {
     const { totalItems } = useSelector((state) => state.cart);
     const location = useLocation();
 
+    const navigate = useNavigate();
+
     const [subLinks, setSubLinks] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [showMenuBar, setShowMenuBar] = useState(false);
+    const [showCatalog, setShowCatalog] = useState(false);
+    const [showProfile, setShowProfile] = useState(false);
 
     useEffect(() => {
         (async () => {
@@ -32,18 +41,82 @@ const Navbar = () => {
         })();
     }, []);
 
-    console.log(subLinks);
-
     function matchRoute(route) {
         return matchPath({ path: route }, location.pathname);
     }
+
+    function homeHandler() {
+        navigate("/");
+        setShowMenuBar(false);
+    }
+    function aboutHandler() {
+        navigate("/about");
+        setShowMenuBar(false);
+    }
+    function contactHandler() {
+        navigate("/contact");
+        setShowMenuBar(false);
+    }
+    function pythonHandler() {
+        navigate("/catalog/python");
+        setShowMenuBar(false);
+    }
+    function webHandler() {
+        navigate("/catalog/web-development");
+        setShowMenuBar(false);
+    }
+    function androidHandler() {
+        navigate("/catalog/android-development");
+        setShowMenuBar(false);
+    }
+    function aiHandler() {
+        navigate("/catalog/artificial-intelligence");
+        setShowMenuBar(false);
+    }
+    function cyberHandler() {
+        navigate("/catalog/cybersecurity");
+        setShowMenuBar(false);
+    }
+    function cloudHandler() {
+        navigate("/catalog/cloud-computing");
+        setShowMenuBar(false);
+    }
+    function uiHandler() {
+        navigate("/catalog/ui-ux-design");
+        setShowMenuBar(false);
+    }
+    function dataHandler() {
+        navigate("/catalog/data-structure-and-algorithm");
+        setShowMenuBar(false);
+    }
+    function loginHandler() {
+        navigate("/login");
+        setShowMenuBar(false);
+    }
+    function signupHandler() {
+        navigate("/signup");
+        setShowMenuBar(false);
+    }
+    function profileHandler() {
+        navigate("/dashboard/my-profile");
+        setShowMenuBar(false);
+    }
+    function enrolledHandler() {
+        navigate("/dashboard/enrolled-courses");
+        setShowMenuBar(false);
+    }
+    function cartHandler() {
+        navigate("/dashboard/cart");
+        setShowMenuBar(false);
+    }
+
 
     return (
         <div
             className={`flex h-[45px] md:h-[55px] items-center justify-center bg-richblack-900 border-b-[1px] border-b-richblack-800 ${location.pathname !== "/" ? "bg-richblack-800" : ""
                 } transition-all duration-200`}
         >
-            <div className="flex w-11/12 max-w-maxContent items-center justify-between">
+            <div className="flex w-11/12 relative max-w-maxContent items-center justify-between">
                 {/* Logo */}
                 <NavLink to="/">
                     <img
@@ -62,8 +135,8 @@ const Navbar = () => {
                                     <>
                                         <div
                                             className={`group relative flex cursor-pointer items-center gap-1 ${matchRoute("/catalog/:catalogName")
-                                                    ? "text-[#a435f0]"
-                                                    : "text-richblack-25"
+                                                ? "text-[#a435f0]"
+                                                : "text-richblack-25"
                                                 }`}
                                         >
                                             <p>{link.title}</p>
@@ -97,8 +170,8 @@ const Navbar = () => {
                                     <Link to={link?.path}>
                                         <p
                                             className={`${matchRoute(link?.path)
-                                                    ? "text-[#a435f0] font-semibold"
-                                                    : "text-richblack-25 font-semibold"
+                                                ? "text-[#a435f0] font-semibold"
+                                                : "text-richblack-25 font-semibold"
                                                 }`}
                                         >
                                             {link.title}
@@ -139,7 +212,177 @@ const Navbar = () => {
                     {token !== null && <ProfileDropdown />}
                 </div>
 
-                <button className="mr-4 md:hidden">
+                {
+                    showMenuBar &&
+                    <div className="fixed inset-0 z-[1000] !mt-0 flex flex-row-reverse overflow-auto bg-white bg-opacity-10 backdrop-blur-sm  transition duration-500 ease-in">
+                        <div className="w-11/12 max-w-[300px] flex flex-col items-start justify-between border border-l-richblack-700 bg-richblack-800 transition duration-500 ease-in">
+
+                            <div>
+                                <div
+                                    className=" text-richblack-400 w-[300px] font-semibold text-[15px] flex items-center justify-between gap-2 border-b-[1px] py-5 px-2 border-richblack-600"
+                                >
+                                    <div className="flex items-center gap-2" onClick={() => setShowMenuBar(false)}>
+                                        <IoIosArrowRoundBack size={30} />
+                                        <p>Back</p>
+                                    </div>
+
+                                    {
+                                        user &&
+                                        <div className=" mx-5">
+                                            <ProfileDropdown />
+                                        </div>
+                                    }
+                                </div>
+
+                                <div className=" text-richblack-400 text-[17px] flex flex-col gap-4 items-start p-6 w-[300px]">
+                                    <div
+                                        onClick={homeHandler}
+                                        className="flex items-center gap-2"
+                                    >
+                                        <AiOutlineHome size={20} />
+                                        <p>Home</p>
+                                    </div>
+
+                                    <div
+                                        onClick={aboutHandler}
+                                        className="flex items-center gap-2"
+                                    >
+                                        <FiUser size={20} />
+                                        <p>About us</p>
+                                    </div>
+
+                                    <div
+                                        onClick={contactHandler}
+                                        className="flex items-center gap-2"
+                                    >
+                                        <AiOutlinePhone size={20} />
+                                        <p>Contact us</p>
+                                    </div>
+
+                                    {/* catalog */}
+                                    <div
+                                        className="flex flex-col gap-3"
+                                    >
+                                        <div
+                                            className="flex items-center gap-2"
+                                            onClick={() => setShowCatalog((prev) => !prev)}
+                                        >
+                                            <BsBook size={20} />
+                                            <p>Catalog</p>
+                                            {
+                                                showCatalog ? <RiArrowDropUpLine size={30} /> : <RiArrowDropDownLine size={30} />
+                                            }
+                                        </div>
+                                        {
+                                            showCatalog &&
+                                            <div className="text-[15px] w-[300px] flex flex-col gap-5 items-start px-8 text-richblack-300">
+                                                <div
+                                                    onClick={pythonHandler}
+                                                >
+                                                    <p>Python</p>
+                                                </div>
+                                                <div
+                                                    onClick={webHandler}
+                                                >
+                                                    <p>Web Development</p>
+                                                </div>
+                                                <div
+                                                    onClick={androidHandler}
+                                                >
+                                                    <p>Android Development</p>
+                                                </div>
+                                                <div
+                                                    onClick={aiHandler}
+                                                >
+                                                    <p>Artificial Intelligence</p>
+                                                </div>
+                                                <div
+                                                    onClick={cyberHandler}
+                                                >
+                                                    <p>Cybersecurity</p>
+                                                </div>
+                                                <div
+                                                    onClick={cloudHandler}
+                                                >
+                                                    <p>Cloud Computing</p>
+                                                </div>
+                                                <div
+                                                    onClick={uiHandler}
+                                                >
+                                                    <p>UI UX Design</p>
+                                                </div>
+                                                <div
+                                                    onClick={dataHandler}
+                                                >
+                                                    <p>Data Structure and Algorithm</p>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+
+                                    {/* profile */}
+                                    {
+                                        user &&
+                                        <div
+                                            className="flex flex-col gap-3"
+                                        >
+                                            <div
+                                                className="flex items-center gap-2"
+                                                onClick={() => setShowProfile((prev) => !prev)}
+                                            >
+                                                <BiUserCircle size={25} />
+                                                <p>Profile</p>
+                                                {
+                                                    showProfile ? <RiArrowDropUpLine size={30} /> : <RiArrowDropDownLine size={30} />
+                                                }
+                                            </div>
+                                            {
+                                                showProfile &&
+                                                <div className="text-[15px] w-[300px] flex flex-col gap-5 items-start px-8 text-richblack-300">
+                                                    <div
+                                                        onClick={profileHandler}
+                                                    >
+                                                        <p>My Account</p>
+                                                    </div>
+                                                    {
+                                                        user.ACCOUNT_TYPE !== "INSTRUCTOR" &&
+                                                        <div className="text-[15px] flex flex-col gap-5 items-start text-richblack-300">
+                                                            <div
+                                                                onClick={enrolledHandler}
+                                                            >
+                                                                <p>Enrolled Courses</p>
+                                                            </div>
+                                                            <div
+                                                                onClick={cartHandler}
+                                                            >
+                                                                <p>My Cart</p>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+
+                            {/* log in sign up  */}
+                            {
+                                token === null &&
+                                <div className="flex items-center justify-center gap-4 my-5 w-[300px] text-richblack-300">
+                                    <div className=" bg-richblack-900 px-3 py-2 rounded-md text-[15px]" onClick={loginHandler}>Log In</div>
+                                    <div className=" bg-richblack-900 px-3 py-2 rounded-md text-[15px]" onClick={signupHandler}>Sign Up </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+
+                <button
+                    className="mr-4 md:hidden"
+                    onClick={() => setShowMenuBar(true)}
+                >
                     <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
                 </button>
             </div>

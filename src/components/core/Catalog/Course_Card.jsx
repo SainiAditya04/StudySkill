@@ -13,7 +13,7 @@ const Course_Card = ({ course, Height }) => {
     }, [course])
 
     return (
-        <div>
+        <div >
             <Link to={`/courses/${course._id}`}>
                 <div>
                     <div className="rounded-sm">

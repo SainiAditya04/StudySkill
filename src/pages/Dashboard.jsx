@@ -16,7 +16,9 @@ const Dashboard = () => {
     }
     return (
         <div className="bg-[#000814] relative flex min-h-[calc(100vh-3.5rem)]">
-            <Sidebar />
+            <div className='hidden md:block'>
+                <Sidebar />
+            </div>
             <div className="h-[calc(100vh-3.5rem)] flex-1 overflow-auto">
                 <div className="mx-auto w-11/12 max-w-[1000px] py-10">
                     <Outlet />
