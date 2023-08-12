@@ -1,5 +1,6 @@
 # StudySkill - Online Learning Platform
 
+<img width="1322" alt="Screenshot 2023-08-12 at 4 28 36 PM" src="https://github.com/SainiAditya04/StudySkill/assets/105772268/6ae5df27-14c3-4a43-b846-78cff9d6dfce">
 StudySkill is an interactive online learning platform designed to connect students with instructors, offering a wide range of courses on various subjects. Whether you're looking to enhance your skills or share your expertise, StudySkill provides the tools to facilitate seamless learning experiences.
 
 ## Key Features
