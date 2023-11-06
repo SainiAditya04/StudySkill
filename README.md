@@ -5,9 +5,11 @@ StudySkill is an interactive online learning platform designed to connect studen
 
 ## Key Features
 ### User Registration: 
+<img width="1000" src="https://github.com/SainiAditya04/StudySkill/assets/105772268/a1a7b25b-3a91-4cec-b83e-a4929c3cba27">
 Students and instructors can easily register and create their accounts, setting the stage for personalized learning journeys.
 
 ### Student Dashboard: 
+<img width="1000" src="https://github.com/SainiAditya04/StudySkill/assets/105772268/87ea29ad-65cb-4bbe-9fc7-018cdf264dfc">
 Once registered, students can access their personalized dashboards, where they can view their enrolled courses, track progress, and manage their account settings.
 
 ### Course Catalog: 
