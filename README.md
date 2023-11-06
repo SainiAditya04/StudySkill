@@ -13,6 +13,7 @@ Students and instructors can easily register and create their accounts, setting 
 Once registered, students can access their personalized dashboards, where they can view their enrolled courses, track progress, and manage their account settings.
 
 ### Course Catalog: 
+<img width="1000" src="https://github.com/SainiAditya04/StudySkill/assets/105772268/aa2e7f2c-3bb8-40c5-bfb7-26b16d3d837f">
 Browse and discover an extensive catalog of courses covering diverse categories. Students can search for courses, read course descriptions, and choose the ones that align with their interests and goals.
 
 ### Instructor Dashboard: 
